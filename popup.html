@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Clearing History</title>
+  <style>
+    body {
+      background-color: rgb(49, 49, 49);
+      color: white;
+      margin: 10px 10px;
+      padding: 5px;
+    }
+
+    div.duration {
+      margin-bottom: 15px;
+      max-width: 280px;
+      line-height: 1.2em;
+      font-size: 1.2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      padding: 0;
+      color: rgb(239, 134, 134);
+    }
+
+    input,
+    select {
+      display: block;
+      margin: 5px 0px 25px 0;
+      padding: 10px 10px;
+      font-size: 1em;
+      border-radius: 5px;
+
+    }
+
+    input {
+      background-color: #444;
+      color: white;
+    }
+
+    select {
+      background-color: #444;
+      color: white;
+      min-width: 220px;
+    }
+
+    button {
+      background-color: #f47272;
+      color: white;
+      outline: none;
+      border: none;
+      padding: 10px;
+      text-align: left;
+    }
+
+    button:disabled {
+      background-color: #ddd;
+      color: #444;
+    }
+
+    label {
+      font-size: 0.9em;
+      color: rgb(239, 134, 134);
+    }
+
+    #status-message {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1.2em;
+      text-align: center;
+      min-height: 40px;
+    }
+
+    #status-message.success {
+      color: #4caf50;
+      font-weight: bold;
+
+    }
+
+    .label {
+      background-color: rgb(81, 81, 80);
+      font-size: 0.7em;
+      padding: 0.5em 0.75em;
+      color: rgb(244, 222, 222);
+      border-radius: 2px;
+    }
+
+    .attribution {
+      position: absolute;
+      bottom: 5px;
+      right: 12px;
+      margin-bottom: 1px;
+    }
+
+    .attribution.left {
+      bottom: 5px;
+      left: 12px;
+      margin-bottom: 1px;
+    }
+
+    .attribution a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .read {
+      color: rgb(197, 136, 136);
+    }
+
+    .svg {
+      width: 48px;
+      height: 48px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="close-icon" class="close-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+      style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+      <path fill="#fff"
+        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+      <path d="M0 0h24v24H0z" fill="none" />
+  </div>
+  <h2>Clear Browser History</h2>
+  <div class="duration">This will remove websites visited in the <span>last <span id="selected-duration" class="read">1
+        hour</span></span> from
+    this device</div>
+  <label for="time-frame">History Duration</label>
+  <select id="time-frame">
+    <option value="1">1 hour</option>
+    <option value="2">2 hours</option>
+    <option value="6">6 hours</option>
+    <option value="12">12 hours</option>
+    <option value="24">1 day</option>
+    <option value="72">3 days</option>
+    <option value="168">1 week</option>
+    <option value="720">1 month</option>
+    <option value="2160">3 months</option>
+    <option value="4320">6 months</option>
+    <option value="8760">1 year</option>
+  </select>
+  <label for="keyword-input">Optional Keyword <span class="label small">Experimental</span></label>
+  <input id="keyword-input" type="text" placeholder="Enter keyword" />
+  <button id="clear-history-button">Clear History</button>
+  <div id="status-message"></div>
+
+  <div class="attribution left"><a target="_blank" href="https://github.com/brainyfarm/chrome-history-extension">View
+      code</a>
+  </div>
+
+  <div class="attribution"><a target="_blank"
+      href="https://github.com/brainyfarm/chrome-history-extension/issues/new">Report
+      issues</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
